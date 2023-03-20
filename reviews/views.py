@@ -6,6 +6,14 @@ from .forms import ReviewForm
 from .predict import predict_review_sentiment
 
 
+def index(request):
+    context = {
+            'poject_name': 'Классификация отзывов'
+    }
+
+    return render(request, 'index.html', context)
+
+
 def add_review(request):
     if request.method == 'POST':
         form = ReviewForm(request.POST)

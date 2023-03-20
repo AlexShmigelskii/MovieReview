@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+    <h1>{{ project_name }}</h1>
+    <p>Описание вашего проекта.</p>
+    <a href="{% url 'add_review' %}">перейти на форму с отзывом</a>
+{% endblock %}
