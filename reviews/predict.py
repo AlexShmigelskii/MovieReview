@@ -14,17 +14,27 @@ def predict_review_sentiment(text):
                                 if not word.lower() in stop_words
                                 and word.isalpha()])
 
-    # vectorizing text
-    X = vectorizer.transform([filtered_review])
+    if len(filtered_review) != 0:
 
-    # making prediction
-    y_new = sentiment_model.predict(X)
-    r_new = rating_model.predict(X)
+        # vectorizing text
+        X = vectorizer.transform([filtered_review])
 
-    sentiment = "negative" if y_new == 0 else "positive"
-    rating = int(r_new)
+        # making prediction
+        y_new = sentiment_model.predict(X)
+        r_new = rating_model.predict(X)
 
-    return sentiment, rating
+        sentiment = "negative" if y_new == 0 else "positive"
+        rating = int(r_new)
+
+        return sentiment, rating
+
+    else:
+        sentiment = 'neutral'
+        rating = 0
+
+        return sentiment, rating
+
+
 
 
 # loading model and vectorizer

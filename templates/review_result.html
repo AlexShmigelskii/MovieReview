@@ -4,13 +4,16 @@
   <h1>Result of prediction</h1>
 {##}
     {% if sentiment == "positive" and rating < 5 %}
-        <p> I'm not sure about my prediction... But based on my experience I guess that this review is {{ sentiment }}. I gave it the mark of {{ rating }}</p>
+        <p> I'm not sure about my prediction... But based on my experience I guess that this review is <b>{{ sentiment }}</b>. I gave it the mark of <b>{{ rating }}</b></p>
 
     {% elif sentiment == "negative" and rating > 4 %}
-        <p> I'm not sure about my prediction... But based on my experience I guess that this review is {{ sentiment }}. I gave it the mark of {{ rating }}</p>
+        <p> I'm not sure about my prediction... But based on my experience I guess that this review is <b>{{ sentiment }}</b>. I gave it the mark of <b>{{ rating }}</b></p>
+
+    {% elif sentiment == "neutral" or rating == 0 %}
+        <p> I'm not sure about my prediction...probably the review is too short or incomplete.</p>
 
     {% else %}
-        <p> I guess that this review is {{ sentiment }}. I gave it the mark of {{ rating }}</p>
+        <p> I guess that this review is <b>{{ sentiment }}</b>. I gave it the mark of <b>{{ rating }}</b></p>
 
     {% endif %}
 
