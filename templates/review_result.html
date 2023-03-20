@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>Result of prediction</h1>
+{##}
+    {% if sentiment == "positive" and rating < 5 %}
+        <p> I'm not sure about my prediction... But based on my experience I guess that this review is {{ sentiment }}. I gave it the mark of {{ rating }}</p>
+
+    {% elif sentiment == "negative" and rating > 4 %}
+        <p> I'm not sure about my prediction... But based on my experience I guess that this review is {{ sentiment }}. I gave it the mark of {{ rating }}</p>
+
+    {% else %}
+        <p> I guess that this review is {{ sentiment }}. I gave it the mark of {{ rating }}</p>
+
+    {% endif %}
+
+{% endblock %}

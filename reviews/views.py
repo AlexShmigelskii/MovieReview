@@ -1,4 +1,6 @@
 from django.shortcuts import render, redirect
+from django.views.generic import TemplateView
+
 from .models import Review
 from .forms import ReviewForm
 from .predict import predict_review_sentiment
@@ -10,11 +12,13 @@ def add_review(request):
 
         if form.is_valid():
             text = form.cleaned_data['text']
-            rating, sentiment = predict_review_sentiment(text)
+            sentiment, rating = predict_review_sentiment(text)
             review = Review(text=text, sentiment=sentiment, rating=rating)
             review.save()
-            return redirect('reviews:add_review')
 
-        else:
-            form = ReviewForm()
-        return render(request, 'add_review.html', {'form': form})
+            return render(request, 'review_result.html', {'sentiment': sentiment, 'rating': rating})
+
+    else:
+        form = ReviewForm()
+
+    return render(request, 'add_review.html', {'form': form})
