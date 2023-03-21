@@ -35,8 +35,6 @@ def predict_review_sentiment(text):
         return sentiment, rating
 
 
-
-
 # loading model and vectorizer
 sentiment_model = joblib.load('reviews/models/reg_sentiment_model14.joblib')
 rating_model = joblib.load('reviews/models/reg_rating_model14.joblib')
