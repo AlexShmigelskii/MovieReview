@@ -2,6 +2,10 @@ import joblib
 from nltk.tokenize import word_tokenize
 from nltk.stem import WordNetLemmatizer
 from nltk.corpus import stopwords
+# import nltk
+# nltk.download('stopwords')
+# nltk.download('punkt')
+# nltk.download('wordnet')
 
 stop_words = set(stopwords.words('english'))
 lemmatizer = WordNetLemmatizer()
@@ -12,7 +16,7 @@ def predict_review_sentiment(text):
     tokens = word_tokenize(text)
     filtered_review = " ".join([lemmatizer.lemmatize(word.lower()) for word in tokens
                                 if not word.lower() in stop_words
-                                and word.isalpha()])
+                                and word.isalnum()])
 
     if len(filtered_review) != 0:
 
@@ -33,6 +37,8 @@ def predict_review_sentiment(text):
         rating = 0
 
         return sentiment, rating
+
+
 
 
 # loading model and vectorizer
