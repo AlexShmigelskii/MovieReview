@@ -2,6 +2,8 @@
 
 MovieReview is a web application that performs sentiment analysis on movie reviews. The application uses Natural Language Processing (NLP) and machine learning techniques to classify reviews as positive, negative, or neutral.
 
+![Image alt](https://github.com/AlexShmigelskii/MovieReview/raw/master/result.png)
+
 ## Table of Contents
 
 * Introduction
